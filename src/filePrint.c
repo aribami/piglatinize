@@ -12,17 +12,31 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include <stdio.h>
-#include <string.h>
 #include "filePrint.h"
 
-int main(int argc,char * argv[]){
-    int status=filePrint(argc,argv);
-    if (status==-1){
-        printf("no file name given\n");
+int filePrint(int argc,char * argv[]){
+    int index=0;
+    for (int i=0;i<argc;i++){
+        if (strcmp(argv[i],"-o")==0){
+            index=i;
+            break;
+        }     
+    }
+    if ((index+1)<argc){
+    FILE* source=fopen(argv[1],"r");
+    FILE* dest=fopen(argv[index+1],"w");
+    char word[50];
+    char ending;
+    while (fscanf(source,"%s%c",word,&ending)!=EOF){
+        fprintf(dest,"%s ",word);
+        if (ending=='\n')
+            fprintf(dest,"\n");
+    }
+    fclose(dest);
+    fclose(source);
+    return 0;
     }
     else {
-        printf("file printed successfully\n");
+        return -1;
     }
-    return 0;
 }

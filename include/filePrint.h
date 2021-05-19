@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2021 by Shriram Ravindranathan
+Copyright (C) 2021 by Abhirami Kirthivasan
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
@@ -12,16 +12,13 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#ifndef __TRANSLATE_H__
-#define __TRANSLATE_H__
 
+#ifndef __FILE_PRINT_H__
+#define __FILE_PRINT_H__
 
+#include<stdio.h>
+#include<string.h>
 
-
-
-
-
-
-
+int filePrint(int argc,char * argv[]);
 
 #endif
