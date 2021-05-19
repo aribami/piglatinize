@@ -12,17 +12,13 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include <stdio.h>
-#include <string.h>
-#include "filePrint.h"
 
-int main(int argc,char * argv[]){
-    int status= filePrint(argc,argv);
-    if (status==-1){
-        printf("no file name given\n");
-    }
-    else {
-        printf("file printed successfully\n");
-    }
-    return 0;
-}
+#ifndef __FILE_PRINT_H__
+#define __FILE_PRINT_H__
+
+#include<stdio.h>
+#include<string.h>
+
+int filePrint(int argc,char * argv[]);
+
+#endif
