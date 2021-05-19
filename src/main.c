@@ -17,7 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #include "filePrint.h"
 
 int main(int argc,char * argv[]){
-    int status=filePrint(argc,argv);
+    int status= filePrint(argc,argv);
     if (status==-1){
         printf("no file name given\n");
     }
