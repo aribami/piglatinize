@@ -23,8 +23,9 @@
 INCLUDES = -I ./include/
 
 SOURCES = ./src/main.c\
-		  ./src/filePrint.c
-
+		  ./src/filePrint.c\
+		  ./src/translate.c
+		  
 CC = gcc
 LD = -L ./
 LDFLAGS = -Wl

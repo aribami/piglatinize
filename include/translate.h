@@ -16,6 +16,10 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 #define __TRANSLATE_H__
 
 
+void translate(char * str);
+   
+
+
 
 
 

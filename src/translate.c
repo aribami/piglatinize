@@ -12,33 +12,31 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include "filePrint.h"
 #include "translate.h"
+#include<string.h>
 
-int filePrint(int argc,char * argv[]){
-    int index=0;
-    for (int i=0;i<argc;i++){
-        if (strcmp(argv[i],"-o")==0){
-            index=i;
+void translate(char* str ){
+    //printf("%s\n",str);
+    int len=strlen(str);
+    char* vowels= "aeiouAEIOU";
+    char* firstVowel = strpbrk(str,vowels);
+    if (firstVowel==NULL){
+        strcat(str,"ay");
+        return;
+    }
+    int indexOfSplit=0;
+    for (int i=0;i<len;i++){
+        if (str[i]==*firstVowel){
+            indexOfSplit=i;
             break;
-        }     
+        
+        }
     }
-    if ((index+1)<argc){
-    FILE* source=fopen(argv[1],"r");
-    FILE* dest=fopen(argv[index+1],"w");
-    char word[255];
-    char ending;
-    while (fscanf(source,"%s%c",word,&ending)!=EOF){
-        translate(word);
-        fprintf(dest,"%s ",word);
-        if (ending=='\n')
-            fprintf(dest,"\n");
-    }
-    fclose(dest);
-    fclose(source);
-    return 0;
-    }
-    else {
-        return -1;
-    }
+    char result[255];
+    strcpy(result,&str[indexOfSplit]);
+    strncat(result,str,indexOfSplit);
+    strcat(result,"ay");
+    //printf("%s\n",result);
+    strcpy(str, result);
+    return;
 }
